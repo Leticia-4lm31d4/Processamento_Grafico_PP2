@@ -12,6 +12,7 @@ Mateus de Nuzzi Bragatto <br>
 
 ## Descrição do Projeto
 Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados
+Tema escolhido para os objetos: astronomia (Sol, Lua, Terra e Marte)
 
 ### Especificações atendidas do projeto
 ### Modo de interação
@@ -19,3 +20,4 @@ Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados
 
 ## Fontes 
 https://threejs.org/
+https://adolfoguimaraes.github.io/threejs/
