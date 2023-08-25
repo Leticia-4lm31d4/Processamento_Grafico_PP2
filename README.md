@@ -2,7 +2,7 @@
 Universidade Federal de São Carlos - Campus Sorocaba <br>
 Bacharelado em Ciência da Computação <br>
 Processamento Gráfico <br>
-Prof. DR. Mario Lizier <br>
+Prof. Dr. Mario Lizier <br>
 <br>
 ### Integrantes
 Cinthia Costa <br>
