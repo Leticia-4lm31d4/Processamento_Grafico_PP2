@@ -1,0 +1,1 @@
+/* Arquivo da biblioteca Three.js */

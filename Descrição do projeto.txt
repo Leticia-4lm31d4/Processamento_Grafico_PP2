@@ -1,9 +1,15 @@
-- Desenvolvimento em grupo, utilizando um projeto no github. Todos os membros do grupo precisam contribuir diretamente no projeto, subindo alterações utilizando suas contas pessoais e comentando cada modificação enviada.
-- Grupos idênticos ao PP1 (comunicar quando algum membro tenha desistido da disciplina)
-- Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados.
-- Entregar: link do projeto no github aqui nos comentários da atividade (o link pode ser fornecido por apenas um membro do grupo)
-
-Implementação: JavaScript + WebGL (sugestão: threejs)
+Desenvolvimento em grupo, utilizando um projeto no github. 
+Todos os membros do grupo precisam contribuir diretamente no projeto, 
+    subindo alterações utilizando suas contas pessoais e comentando cada modificação enviada.
+Grupos idênticos ao PP1 (comunicar quando algum membro tenha desistido da disciplina)
+--
+Objetivo
+    Criar e visualizar uma cena 3D, mapeando os conceitos estudados.
+Entregar
+    link do projeto no github aqui nos comentários da atividade (o link pode ser fornecido por apenas um membro do grupo)
+Implementação
+    JavaScript + WebGL (sugestão: threejs)
+--
 
 Especificações/Avaliação:
 - Visualização de pelo menos um objeto 3D por membro do grupo, redimensionando e posicionando cada objeto individualmente no ambiente virtual;
