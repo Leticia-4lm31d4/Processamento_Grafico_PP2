@@ -16,3 +16,6 @@ Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados
 ### Especificações atendidas do projeto
 ### Modo de interação
 ### Descrição das principais características implementadas
+
+## Fontes 
+https://threejs.org/
