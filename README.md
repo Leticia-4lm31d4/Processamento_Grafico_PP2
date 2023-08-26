@@ -11,17 +11,21 @@ Letícia Almeida Paulino de Alencar Ferreira <br>
 Mateus de Nuzzi Bragatto <br>
 
 ## Descrição do Projeto
-Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados
-Tema escolhido para os objetos: astronomia (Sol, Lua, Terra e Marte)
+**Tema escolhido:** Astronomia (Sol, Mercúrio, Venus, Terra e Marte); <br>
 
-### Especificações atendidas do projeto
-- Visualização de 4 objetos 3D (Sol, Mercúrio, Venus e Terra);
-    - Redimensionando e posicionando cada objeto individualmente no ambiente virtual;
-- Utilização de um shader próprio em um dos objetos (RawShaderMaterial);
-- Definição de pelo menos duas câmera;
-- Movimento simples de pelo menos um objeto;
+Esse projeto tem como objetivo criar a visualização de uma cena 3D que representa parte do sistema solar, com objetos 3D posicionados e dimensionados de modo a simbolizar os planetas (Mercúrio, Venus, Terra e Marte) e o Sol, mapeando os conceitos estudados em Processamento Gráfico. Nesse sentido, cada astro possui seu posicionamento e movimentação (Rotação e Translação) junto a sua textura, além disso, a cena possui duas câmeras com vistas distintas, uma sendo a vista superior e outra a diagonal direita (vista direita do eixos x, y, z).
+
 ### Modo de interação
+Para interagir com o projeto:
+1. Clonar o repositório<br>
+```git clone https://github.com/Leticia-4lm31d4/PP2.git```
+2. Executar o arquivo:<br> 
+```index.html```
+3. Para mudar de camêra:<br>
+```colocar aqui como que muda de camera :)```
+
 ### Descrição das principais características implementadas
+Cinco objetos 3D foram criados, suas dimensões buscam respeitar o sistema solar, assim como seus posicionamentos de acordo com os eixos, logo, o Sol está no centro (0,0,0), é o maior objeto em cena e sua movimentação é a rotação em sei eixo X. Dessa maneira, os planetas estão na ordem real de proximidade com a estrela e suas dimensões procuram simular as proporções de cada um em comparação com a terra, para melhor visualização, pois se comparadas ao Sol visualmente seria complicado enxergar mercúrio, por exemplo. Então, também possuem suas rotações e translações, para definir as velocidades usamos as infromações da terra como base de proporção, porém os dados da terra não são os reais, também para melhor visualização e processamento.
 
 ## Fontes 
 https://threejs.org/ <br>
