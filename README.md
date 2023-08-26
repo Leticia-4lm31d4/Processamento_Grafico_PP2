@@ -15,9 +15,14 @@ Objetivo: Criar e visualizar uma cena 3D, mapeando os conceitos estudados
 Tema escolhido para os objetos: astronomia (Sol, Lua, Terra e Marte)
 
 ### Especificações atendidas do projeto
+- Visualização de 4 objetos 3D (Sol, Mercúrio, Venus e Terra);
+    - Redimensionando e posicionando cada objeto individualmente no ambiente virtual;
+- Utilização de um shader próprio em um dos objetos (RawShaderMaterial);
+- Definição de pelo menos duas câmera;
+- Movimento simples de pelo menos um objeto;
 ### Modo de interação
 ### Descrição das principais características implementadas
 
 ## Fontes 
-https://threejs.org/
-https://adolfoguimaraes.github.io/threejs/
+https://threejs.org/ <br>
+https://adolfoguimaraes.github.io/threejs/ <br>
