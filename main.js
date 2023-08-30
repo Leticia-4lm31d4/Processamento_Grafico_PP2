@@ -35,13 +35,16 @@ scene.add(coordenadas);
 const textureLoader = new THREE.TextureLoader();
 
 // Sol
-const solGeometry = new THREE.SphereGeometry(2, 32, 32); 
-var solTexture = new THREE.TextureLoader().load("/texturas/sunTexture.jpeg");
-var solMaterial = new THREE.MeshBasicMaterial();
+const solGeometry = new THREE.SphereGeometry(3, 32, 32);
+const solNormalMap = textureLoader.load('/texturas/sol/sunNormal.jpeg');
+const solBumpMap = textureLoader.load('/texturas/sol/sunBump.png');
 
-solMaterial.map = solTexture;
+const solMaterial = new THREE.MeshStandardMaterial({
+	map: solNormalMap,
+	bumpMap: solBumpMap,
+  }
+);
 
-//const solMaterial = new THREE.MeshBasicMaterial({color: 0xF8F8FF });
 const sol = new THREE.Mesh(solGeometry, solMaterial);
 sol.position.set(0,0,0);
 scene.add(sol);
@@ -59,7 +62,7 @@ const terraMaterial = new THREE.MeshStandardMaterial({
 );
 
 const terra = new THREE.Mesh(terraGeometry, terraMaterial);
-terra.position.set(7,0,0);
+terra.position.set(8,0,0);
 scene.add(terra);
 
 // Mercúrio
@@ -74,37 +77,44 @@ const mercurioMaterial = new THREE.MeshStandardMaterial({
 );
 
 const mercurio = new THREE.Mesh(mercurioGeometry, mercurioMaterial);
-mercurio.position.set(3,0,0);
+mercurio.position.set(4,0,0);
 scene.add(mercurio);
 
 // Venus
 const venusGeometry = new THREE.SphereGeometry(0.5, 32, 32); 
-var venusTexture = new THREE.TextureLoader().load("/texturas/venusTexture.jpeg");
-var venusMaterial = new THREE.MeshBasicMaterial();
+const venusNormalMap = textureLoader.load('/texturas/venus/venusNormal.jpeg');
+const venusBumpMap = textureLoader.load('/texturas/venus/venusBump.png');
 
-venusMaterial.map = venusTexture;
+const venusMaterial = new THREE.MeshStandardMaterial({
+	map: venusNormalMap,
+	bumpMap: venusBumpMap,
+  }
+);
 
-//const venusMaterial = new THREE.MeshBasicMaterial({color: 0xB8860B });
 const venus = new THREE.Mesh(venusGeometry, venusMaterial);
-venus.position.set(5,0,0);
+venus.position.set(6,0,0);
 scene.add(venus);
 
 // Marte
 const marteGeometry = new THREE.SphereGeometry(0.4, 32, 32); 
-var marteTexture = new THREE.TextureLoader().load("/texturas/marsTexture.jpeg");
-var marteMaterial = new THREE.MeshBasicMaterial();
+const marteNormalMap = textureLoader.load('/texturas/marte/marsNormal.jpeg');
+const marteBumpMap = textureLoader.load('/texturas/marte/marsBump.png');
 
-marteMaterial.map = marteTexture;
+const marteMaterial = new THREE.MeshStandardMaterial({
+	map: marteNormalMap,
+	bumpMap: marteBumpMap,
+  }
+);
 
-//const marteMaterial = new THREE.MeshBasicMaterial({color: 0xB22222 });
 const marte = new THREE.Mesh(marteGeometry, marteMaterial);
-marte.position.set(9,0,0);
+marte.position.set(10,0,0);
 scene.add(marte);
 
+
 // Iluminação - Shader (Sombremento)
-var luz = new THREE.DirectionalLight(0xffffff, 10.0);
-luz.position.set(0,0,0);
-scene.add(luz);
+var luzx = new THREE.DirectionalLight(0xffffff, 4.5);
+luzx.position.set(100,0,0);
+scene.add(luzx);
 
 var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambientLight);
@@ -138,17 +148,17 @@ function animate() {
 	const time = Date.now() * 0.001; // Tempo em segundos
 	const terraOrbitSpeed = 0.2; // 365 dias
   
-	terra.position.x = Math.cos(time * terraOrbitSpeed) * 8;
-	terra.position.z = Math.sin(time * terraOrbitSpeed) * 8;
+	terra.position.x = Math.cos(time * terraOrbitSpeed) * 9;
+	terra.position.z = Math.sin(time * terraOrbitSpeed) * 9;
 
-	mercurio.position.x = Math.cos(time * terraOrbitSpeed * 4.14) * 3; // 88 dias
-	mercurio.position.z = Math.sin(time * terraOrbitSpeed * 4.14) * 3;
+	mercurio.position.x = Math.cos(time * terraOrbitSpeed * 4.14) * 4; // 88 dias
+	mercurio.position.z = Math.sin(time * terraOrbitSpeed * 4.14) * 4;
 
-	venus.position.x = Math.cos(time * terraOrbitSpeed * 1.62) * 5; // 224,7 dias
-	venus.position.z = Math.sin(time * terraOrbitSpeed * 1.62) * 5;
+	venus.position.x = Math.cos(time * terraOrbitSpeed * 1.62) * 6; // 224,7 dias
+	venus.position.z = Math.sin(time * terraOrbitSpeed * 1.62) * 6;
 
-	marte.position.x = Math.cos(time * terraOrbitSpeed * 1.88) * 9; // 687 dias
-	marte.position.z = Math.sin(time * terraOrbitSpeed * 1.88) * 9;
+	marte.position.x = Math.cos(time * terraOrbitSpeed * 1.88) * 10; // 687 dias
+	marte.position.z = Math.sin(time * terraOrbitSpeed * 1.88) * 10;
 
 	// Rotação dos planetas e do SOl em seus eixos
 	sol.rotation.y += 0.0037; //27 dias para o sol girar em seu eixo (1/27)
