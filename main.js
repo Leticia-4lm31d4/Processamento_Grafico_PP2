@@ -31,6 +31,8 @@ camera_frontal.updateMatrixWorld();
 // Construindo Objetos / Modelos
 const coordenadas = new THREE.AxesHelper(5);
 scene.add(coordenadas);
+// Para aplicar texturas
+const textureLoader = new THREE.TextureLoader();
 
 // Sol
 const solGeometry = new THREE.SphereGeometry(2, 32, 32); 
@@ -45,25 +47,32 @@ sol.position.set(0,0,0);
 scene.add(sol);
 
 // Terra
-const terraGeometry = new THREE.SphereGeometry(0.55, 32, 32); 
-var terraTexture = new THREE.TextureLoader().load("/texturas/earthTexture.jpeg");
-var terraMaterial = new THREE.MeshBasicMaterial();
+const terraGeometry = new THREE.SphereGeometry(0.55, 32, 32);
 
-terraMaterial.map = terraTexture;
+const terraNormalMap = textureLoader.load('/texturas/terra/terraNormal.jpeg');
+const terraBumpMap = textureLoader.load('/texturas/terra/terraBump.jpeg');
 
-//const terraMaterial = new THREE.MeshBasicMaterial({color: 0x1E90FF });
+const terraMaterial = new THREE.MeshStandardMaterial({
+	map: terraNormalMap,
+	bumpMap: terraBumpMap,
+  }
+);
+
 const terra = new THREE.Mesh(terraGeometry, terraMaterial);
 terra.position.set(7,0,0);
 scene.add(terra);
 
 // Mercúrio
 const mercurioGeometry = new THREE.SphereGeometry(0.2, 32, 32); 
-var mercurioTexture = new THREE.TextureLoader().load("/texturas/mercuryTexture.jpeg");
-var mercurioMaterial = new THREE.MeshBasicMaterial();
+const mercurioNormalMap = textureLoader.load('/texturas/mercurio/mercuryNormal.jpeg');
+const mercurioBumpMap = textureLoader.load('/texturas/mercurio/mercuryBump.png');
 
-mercurioMaterial.map = mercurioTexture;
+const mercurioMaterial = new THREE.MeshStandardMaterial({
+	map: mercurioNormalMap,
+	bumpMap: mercurioBumpMap,
+  }
+);
 
-//const mercurioMaterial = new THREE.MeshBasicMaterial({color: 0xD2B48C });
 const mercurio = new THREE.Mesh(mercurioGeometry, mercurioMaterial);
 mercurio.position.set(3,0,0);
 scene.add(mercurio);
@@ -93,30 +102,32 @@ marte.position.set(9,0,0);
 scene.add(marte);
 
 // Iluminação - Shader (Sombremento)
-/*
-var directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
-directionalLight.position.set(100,0,0);
-scene.add(directionalLight);
+var luz = new THREE.DirectionalLight(0xffffff, 10.0);
+luz.position.set(0,0,0);
+scene.add(luz);
 
-var ambientLight = new THREE.AmbientLight(0x111111, 1.0);
+var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambientLight);
-*/
+
 
 // Alternando entre as cameras de modo automatico
-// Vetor com as cameras
 const cameras = [camera_superior, camera_diagonal, camera_frontal];
+
 let index_camera = 0;
 const mudarCamera = () => {
 	index_camera = (index_camera + 1) % cameras.length;
   };
 
 document.addEventListener('keydown', (event) => {
-	if (event.key === 'ArrowLeft') {
+	if (event.key === 'ArrowLeft') 
+	{
 		mudarCamera();
-	} else if (event.key === 'ArrowRight') {
+	} else if (event.key === 'ArrowRight') 
+	{
 		mudarCamera();
 	}
-  });
+  }
+);
 
 
 // Loop de renderização => Animar a cena
@@ -140,14 +151,15 @@ function animate() {
 	marte.position.z = Math.sin(time * terraOrbitSpeed * 1.88) * 9;
 
 	// Rotação dos planetas e do SOl em seus eixos
-	sol.rotation.y += 0.037; //27 dias para o sol girar em seu eixo (1/27)
-	terra.rotation.y += 0.1; // terra gira em 1 dia em seu eixo (1/1)
-	mercurio.rotation.y += 0.017 // mercurio demora 59 dias (1/59)
-	venus.rotation.y += 0.0041 //venus demora 243,0226 dias (1/243,0226)
-	marte.rotation.y += 0.099999 // marte demora 24h e 37 min
+	sol.rotation.y += 0.0037; //27 dias para o sol girar em seu eixo (1/27)
+	terra.rotation.y += 0.01; // terra gira em 1 dia em seu eixo (1/1)
+	mercurio.rotation.y += 0.0017 // mercurio demora 59 dias (1/59)
+	venus.rotation.y += 0.00041 //venus demora 243,0226 dias (1/243,0226)
+	marte.rotation.y += 0.009 // marte demora 24h e 37 min
 
 	// Atualizar a câmera ativa
 	const camera_atual = cameras[index_camera];
+
 	renderer.render( scene, camera_atual);
 }
 // Chamando a func de renderizador
