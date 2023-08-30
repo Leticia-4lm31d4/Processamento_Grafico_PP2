@@ -13,7 +13,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement ); 
 
 
-// Posição das câmeras
+// Definição das cameras e suas posições
 camera_superior.position.set(0, 25, 0); // Posiciona a câmera acima da cena
 camera_superior.lookAt(new THREE.Vector3(0, 0, 0)); // Aponta a câmera para o centro da cena
 camera_superior.up.set(0, 0, -1); // Define o vetor "up" da câmera para apontar para baixo
@@ -27,15 +27,6 @@ camera_frontal.position.set(0, 0, 15);
 camera_frontal.lookAt(scene.position);
 camera_frontal.updateMatrixWorld();
 
-// Iluminação
-/*
-var directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
-directionalLight.position.set(100,0,0);
-scene.add(directionalLight);
-
-var ambientLight = new THREE.AmbientLight(0x111111, 1.0);
-scene.add(ambientLight);
-*/
 
 // Construindo Objetos / Modelos
 const coordenadas = new THREE.AxesHelper(5);
@@ -101,6 +92,32 @@ const marte = new THREE.Mesh(marteGeometry, marteMaterial);
 marte.position.set(9,0,0);
 scene.add(marte);
 
+// Iluminação - Shader (Sombremento)
+/*
+var directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+directionalLight.position.set(100,0,0);
+scene.add(directionalLight);
+
+var ambientLight = new THREE.AmbientLight(0x111111, 1.0);
+scene.add(ambientLight);
+*/
+
+// Alternando entre as cameras de modo automatico
+// Vetor com as cameras
+const cameras = [camera_superior, camera_diagonal, camera_frontal];
+let index_camera = 0;
+const mudarCamera = () => {
+	index_camera = (index_camera + 1) % cameras.length;
+  };
+
+document.addEventListener('keydown', (event) => {
+	if (event.key === 'ArrowLeft') {
+		mudarCamera();
+	} else if (event.key === 'ArrowRight') {
+		mudarCamera();
+	}
+  });
+
 
 // Loop de renderização => Animar a cena
 function animate() {
@@ -129,7 +146,9 @@ function animate() {
 	venus.rotation.y += 0.0041 //venus demora 243,0226 dias (1/243,0226)
 	marte.rotation.y += 0.099999 // marte demora 24h e 37 min
 
-	renderer.render( scene, camera_frontal);
+	// Atualizar a câmera ativa
+	const camera_atual = cameras[index_camera];
+	renderer.render( scene, camera_atual);
 }
 // Chamando a func de renderizador
 animate();
