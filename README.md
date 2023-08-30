@@ -26,10 +26,10 @@ Para interagir com o projeto:
 
 
 3. Para mudar de camêra:<br>
-   ```Utilizar as teclas de direção, esquerda (<) ou direita (>), do teclado para mudar a camera atual da cena.```
+```Utilizar as teclas de direção, esquerda (<) ou direita (>), do teclado para mudar a camera atual da cena.```
 
 ### Descrição das principais características implementadas
-Cinco objetos 3D foram criados, suas dimensões buscam respeitar o sistema solar, assim como seus posicionamentos de acordo com os eixos, logo, o Sol está no centro (0,0,0), é o maior objeto em cena e sua movimentação é a rotação em sei eixo X. Dessa maneira, os planetas estão na ordem real de proximidade com a estrela e suas dimensões procuram simular as proporções de cada um em comparação com a terra, para melhor visualização, pois se comparadas ao Sol visualmente seria complicado enxergar mercúrio, por exemplo. Então, também possuem suas rotações e translações, para definir as velocidades usamos as infromações da terra como base de proporção, porém os dados da terra não são os reais, também para melhor visualização e processamento.
+Cinco objetos 3D foram criados, suas dimensões buscam respeitar o sistema solar, assim como seus posicionamentos de acordo com os eixos, logo, o Sol está no centro (0,0,0), é o maior objeto em cena e sua movimentação é a rotação em seu eixo y. Dessa maneira, os planetas estão na ordem real de proximidade com a estrela e suas dimensões procuram simular as proporções de cada um em comparação com a terra, para melhor visualização, pois se comparadas ao Sol visualmente seria complicado enxergar mercúrio, por exemplo. Então, também possuem suas rotações com eixo y e translações, para definir as velocidades usamos as infromações da terra como base de proporção, porém os dados da terra não são os reais, também para melhor visualização e processamento.
 
 ## Fontes 
 https://threejs.org/ <br>
