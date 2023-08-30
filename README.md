@@ -20,7 +20,11 @@ Para interagir com o projeto:
 1. Clonar o repositório<br>
 ```git clone https://github.com/Leticia-4lm31d4/PP2.git```
 2. Executar o arquivo:<br> 
-```index.html```
+``` 1. index.html``` <br>
+``` 2. Para abrir: Utilizamos o Live server com o VSCode```<br>
+``` 3. http://127.0.0.1:5500/index.html```
+
+
 3. Para mudar de camêra:<br>
 ```colocar aqui como que muda de camera :)```
 
@@ -30,3 +34,4 @@ Cinco objetos 3D foram criados, suas dimensões buscam respeitar o sistema solar
 ## Fontes 
 https://threejs.org/ <br>
 https://adolfoguimaraes.github.io/threejs/ <br>
+https://sketchfab.com/
