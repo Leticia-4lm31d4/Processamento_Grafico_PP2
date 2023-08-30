@@ -29,13 +29,13 @@ Para interagir com o projeto:
 ```Utilizar as teclas de direção, esquerda (<) ou direita (>), do teclado para mudar a camera atual da cena.```
 
 Camera Superior<br>
-![Eixo Y](/imagens/teste_img_md.jpg)
+![Eixo Y](/imagens/eixoy.png)
 
 Camera Frontal<br>
-![Eixo Z](/imagens/teste_img_md.jpg)
+![Eixo Z](/imagens/eixoz.png)
 
 Camera Diagonal<br>
-![Eixos X,Y,Z](/imagens/teste_img_md.jpg)
+![Eixos X,Y,Z](/imagens/eixoxyz.png)
 
 
 ### Descrição das principais características implementadas
