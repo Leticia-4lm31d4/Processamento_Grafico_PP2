@@ -13,7 +13,7 @@ Mateus de Nuzzi Bragatto <br>
 ## Descrição do Projeto
 **Tema escolhido:** Astronomia (Sol, Mercúrio, Venus, Terra e Marte); <br>
 
-Esse projeto tem como objetivo criar a visualização de uma cena 3D que representa parte do sistema solar, com objetos 3D posicionados e dimensionados de modo a simbolizar os planetas (Mercúrio, Venus, Terra e Marte) e o Sol, mapeando os conceitos estudados em Processamento Gráfico. Nesse sentido, cada astro possui seu posicionamento e movimentação (Rotação e Translação) junto a sua textura, além disso, a cena possui duas câmeras com vistas distintas, uma sendo a vista superior e outra a diagonal direita (vista direita do eixos x, y, z).
+Esse projeto tem como objetivo criar a visualização de uma cena 3D que representa parte do sistema solar, com objetos 3D posicionados e dimensionados de modo a simbolizar os planetas (Mercúrio, Venus, Terra e Marte) e o Sol, mapeando os conceitos estudados em Processamento Gráfico. Nesse sentido, cada astro possui seu posicionamento e movimentação (Rotação e Translação) junto a sua textura, além disso, a cena possui três câmeras com vistas distintas, sendo elas a vista superior (de frente para o eixo y), vista frontal ( de frente para o eixo z) e diagonal (visão dos 3 eixos).
 
 ### Modo de interação
 Para interagir com o projeto:
