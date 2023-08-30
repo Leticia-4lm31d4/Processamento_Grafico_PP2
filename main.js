@@ -38,12 +38,12 @@ scene.add(coordenadas);
 
 // Sol
 const solGeometry = new THREE.SphereGeometry(2, 32, 32); 
-/*var sunTexture = new THREE.TextureLoader().load("sunTexture.jpeg");
-var sunMaterial = new THREE.MeshBasicMaterial();
+var solTexture = new THREE.TextureLoader().load("sunTexture.jpeg");
+var solMaterial = new THREE.MeshBasicMaterial();
 
-sunMaterial.map = sunTexture;*/
+solMaterial.map = solTexture;
 
-const solMaterial = new THREE.MeshBasicMaterial({color: 0xF8F8FF });
+//const solMaterial = new THREE.MeshBasicMaterial({color: 0xF8F8FF });
 const sol = new THREE.Mesh(solGeometry, solMaterial);
 sol.position.set(0,0,0);
 scene.add(sol);
@@ -98,11 +98,11 @@ function animate() {
 	marte.position.z = Math.sin(time * terraOrbitSpeed * 1.88) * 9;
 
 	// Rotação dos planetas e do SOl em seus eixos
-	sol.rotation.x += 0.037; //27 dias para o sol girar em seu eixo (1/27)
-	terra.rotation.x += 0.1; // terra gira em 1 dia em seu eixo (1/1)
-	mercurio.rotation.x += 0.017 // mercurio demora 59 dias (1/59)
-	venus.rotation.x += 0.0041 //venus demora 243,0226 dias (1/243,0226)
-	marte.rotation.x += 0.099999 // marte demora 24h e 37 min
+	sol.rotation.y += 0.037; //27 dias para o sol girar em seu eixo (1/27)
+	terra.rotation.y += 0.1; // terra gira em 1 dia em seu eixo (1/1)
+	mercurio.rotation.y += 0.017 // mercurio demora 59 dias (1/59)
+	venus.rotation.y += 0.0041 //venus demora 243,0226 dias (1/243,0226)
+	marte.rotation.y += 0.099999 // marte demora 24h e 37 min
 
 	renderer.render( scene, camera_diagonal_3eixos);
 }
