@@ -36,15 +36,29 @@ const textureLoader = new THREE.TextureLoader();
 
 // Sol
 const solGeometry = new THREE.SphereGeometry(3, 32, 32);
-const solNormalMap = textureLoader.load('/texturas/sol/sunNormal.jpeg');
-const solBumpMap = textureLoader.load('/texturas/sol/sunBump.png');
 
-const solMaterial = new THREE.MeshStandardMaterial({
-	map: solNormalMap,
-	bumpMap: solBumpMap,
-  }
-);
-
+// Shader 
+var solMaterial = new THREE.ShaderMaterial({
+    uniforms: {
+        color: { value: new THREE.Color(0xFFA500) },
+        myTexture: { value: new THREE.TextureLoader().load('/texturas/sol/sunBump.png') }
+    },
+    vertexShader: `
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `,
+    fragmentShader: `
+        uniform vec3 color;
+        uniform sampler2D myTexture;
+        varying vec2 vUv;
+        void main() {
+            gl_FragColor = mix(vec4(color, 1.0), texture2D(myTexture, vUv), 0.5);
+        }
+    `
+});
 const sol = new THREE.Mesh(solGeometry, solMaterial);
 sol.position.set(0,0,0);
 scene.add(sol);
@@ -111,12 +125,8 @@ marte.position.set(10,0,0);
 scene.add(marte);
 
 
-// Iluminação - Shader (Sombremento)
-var luzx = new THREE.DirectionalLight(0xffffff, 4.5);
-luzx.position.set(100,0,0);
-scene.add(luzx);
-
-var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+// Iluminação
+var ambientLight = new THREE.AmbientLight(0xffffff, 2.5);
 scene.add(ambientLight);
 
 
@@ -161,7 +171,7 @@ function animate() {
 	marte.position.z = Math.sin(time * terraOrbitSpeed * 1.88) * 10;
 
 	// Rotação dos planetas e do SOl em seus eixos
-	sol.rotation.y += 0.0037; //27 dias para o sol girar em seu eixo (1/27)
+	sol.rotation.y += 0.0037; //25 dias para o sol girar em seu eixo (1/25)
 	terra.rotation.y += 0.01; // terra gira em 1 dia em seu eixo (1/1)
 	mercurio.rotation.y += 0.0017 // mercurio demora 59 dias (1/59)
 	venus.rotation.y += 0.00041 //venus demora 243,0226 dias (1/243,0226)
