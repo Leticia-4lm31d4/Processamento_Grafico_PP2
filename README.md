@@ -40,7 +40,6 @@ Camera Diagonal<br>
 ### Descrição das principais características implementadas
 <p>Cinco objetos 3D foram criados, suas dimensões buscam respeitar o sistema solar, assim como seus posicionamentos de acordo com os eixos, logo, o Sol está no centro (0,0,0), é o maior objeto em cena e sua movimentação é a rotação em seu eixo y. Dessa maneira, os planetas estão na ordem real de proximidade com a estrela e suas dimensões procuram simular as proporções de cada um em comparação com a terra, para melhor visualização, pois se comparadas ao Sol visualmente seria complicado enxergar mercúrio, por exemplo. Então, também possuem suas rotações com eixo y e translações, para definir as velocidades usamos as infromações da terra como base de proporção, porém os dados da terra não são os reais, também para melhor visualização e processamento.</p>
 <p>Para implementar as camêras, escolhemos três visões diferentes que podem ser alternadas, sendo uma para vizualizar do eixo z, outra do eixo y e uma que permite ver os 3 eixos. Nesse sentido, percebe-se que na cena estão presentes os eixos para guiar o espectador da cena.</p>
-A iluminação ambiente foi definida para visualização dos objetos criados, pois os para os planetas eles possuem textura e o Sol shader. Desse modo
 
 ## Fontes 
 https://threejs.org/ <br>
