@@ -37,28 +37,15 @@ const textureLoader = new THREE.TextureLoader();
 // Sol
 const solGeometry = new THREE.SphereGeometry(3, 32, 32);
 
-// Shader 
-var solMaterial = new THREE.ShaderMaterial({
-    uniforms: {
-        color: { value: new THREE.Color(0xFFA500) },
-        myTexture: { value: new THREE.TextureLoader().load('/texturas/sol/sunBump.png') }
-    },
-    vertexShader: `
-        varying vec2 vUv;
-        void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-    `,
-    fragmentShader: `
-        uniform vec3 color;
-        uniform sampler2D myTexture;
-        varying vec2 vUv;
-        void main() {
-            gl_FragColor = mix(vec4(color, 1.0), texture2D(myTexture, vUv), 0.5);
-        }
-    `
-});
+const solNormalMap = textureLoader.load('/texturas/sol/sunNormal.jpeg');
+const solBumpMap = textureLoader.load('/texturas/sol/sunBump.png');
+
+const solMaterial = new THREE.MeshStandardMaterial({
+	map: solNormalMap,
+	bumpMap: solBumpMap,
+  }
+);
+
 const sol = new THREE.Mesh(solGeometry, solMaterial);
 sol.position.set(0,0,0);
 scene.add(sol);
@@ -129,6 +116,9 @@ scene.add(marte);
 var ambientLight = new THREE.AmbientLight(0xffffff, 2.5);
 scene.add(ambientLight);
 
+const sunLight = new THREE.DirectionalLight(0xffffff, 4.5);
+sunLight.position.set(0, 100, 100); 
+scene.add(sunLight);
 
 // Alternando entre as cameras de modo automatico
 const cameras = [camera_superior, camera_diagonal, camera_frontal];
@@ -158,8 +148,8 @@ function animate() {
 	const time = Date.now() * 0.001; // Tempo em segundos
 	const terraOrbitSpeed = 0.2; // 365 dias
   
-	terra.position.x = Math.cos(time * terraOrbitSpeed) * 9;
-	terra.position.z = Math.sin(time * terraOrbitSpeed) * 9;
+	terra.position.x = Math.cos(time * terraOrbitSpeed) * 8;
+	terra.position.z = Math.sin(time * terraOrbitSpeed) * 8;
 
 	mercurio.position.x = Math.cos(time * terraOrbitSpeed * 4.14) * 4; // 88 dias
 	mercurio.position.z = Math.sin(time * terraOrbitSpeed * 4.14) * 4;
